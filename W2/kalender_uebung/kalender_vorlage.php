@@ -1,6 +1,6 @@
 ﻿<?php
 // Konfiguration der Umgebung
-$locale = 'en_GB';
+$locale = 'de_CH'; // 'en_GB' für englisch/Grossbritannien oder 'fr_FR' fr Französisch/Frankreich usw...
 $timezone = 'CET'; // GMT = Grenwich Time, CET = GMT+2 (Central EU Time Sommerzeit) oder GMT+1 (Central EU Time Winterzeit)
 $dateType = IntlDateFormatter::FULL; // Formatierungsform (lang, kurz, komplett etc.)
 $timeType = IntlDateFormatter::FULL; // Formatierungsform (lang, kurz, komplett etc.)
@@ -20,7 +20,6 @@ $monat = datefmt_format($format_monat, $aktuellerTimeStamp);
 
 $format_jahr = datefmt_create( $locale, $dateType, $timeType, $timezone, $calendar, 'y');
 $jahr = datefmt_format( $format_jahr, $aktuellerTimeStamp);
-
 ?>
 <html>
 <head>
