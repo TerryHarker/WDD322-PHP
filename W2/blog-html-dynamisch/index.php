@@ -75,18 +75,18 @@ $blogdata = array (
                      <div data-id="page#1-0-0-0" class="uk-margin">
                         <div class="uk-child-width-1-1 uk-grid-divider uk-grid-match" uk-grid>
                            
-									<?php foreach(  $blogdata as $blogentry ){ ?>														
-							      <div>
-                              <div class="el-item uk-panel uk-margin-remove-first-child">
-                                 <h3 class="el-title uk-margin-top uk-margin-remove-bottom"><?php echo $blogentry['titel'] ?></h3>
-                                 <div class="el-meta uk-text-meta uk-margin-top"><time><?php echo $blogentry['datum'] ?></time> | Terry | <?php echo $blogentry['kategorie'] ?></div>
-                                 <div class="el-content uk-panel uk-margin-top">
-                                    <p><?php echo $blogentry['text'] ?></p>
-                                 </div>
-                                 <div class="uk-margin-top"><a href="post.php?article=20:willkommen-im-php-sql-kurs" class="el-link uk-button uk-button-default">Lesen</a></div>
-                              </div>
-                           </div>
-									<?php } ?>
+							<?php foreach(  $blogdata as $blogentry ){ ?>														
+							<div>
+							  <div class="el-item uk-panel uk-margin-remove-first-child">
+								 <h3 class="el-title uk-margin-top uk-margin-remove-bottom"><?php echo $blogentry['titel'] ?></h3>
+								 <div class="el-meta uk-text-meta uk-margin-top"><time><?php echo $blogentry['datum'] ?></time> | Terry | <?php echo $blogentry['kategorie'] ?></div>
+								 <div class="el-content uk-panel uk-margin-top">
+									<p><?php echo $blogentry['text'] ?></p>
+								 </div>
+								 <div class="uk-margin-top"><a href="post.php?article=20:willkommen-im-php-sql-kurs" class="el-link uk-button uk-button-default">Lesen</a></div>
+							  </div>
+							</div>
+							<?php } ?>
 						  
                         </div>
                      </div>
