@@ -24,10 +24,11 @@ if( isset($_POST['name'], $_POST['email'], $_POST['nachricht']) ){
         $empfaenger = 'citystrolch@gmail.com';
         $betreff = 'Mail aus dem PHP Script';
         $message = "Diese Mail haben wir aus dem Script versendet:\n\n".$nachricht."\n\nViele Grüsse, das PHP Script ;-)";
-        $headers = [];
-        $headers[] = "From: noreply@bytekultur.net";
-        $headers[] = "Reply-to: ".$email;
-        $headers[] = "Content-type: text/html; charset=iso-8859-1";
+        
+        // Header vorbereiten (Metadaten) - hier als concatenated string
+        $headers = "From: noreply@bytekultur.net";
+        $headers .= "Reply-to: ".$email;
+        $headers .= "Content-type: text/plain; charset=iso-8859-1";
 
         $mailSent = mail($empfaenger, $betreff, $message, $headers);
         if( $mailSent == true){
