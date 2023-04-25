@@ -13,8 +13,10 @@ require_once('includes/mysql-connect.php'); // Datenbankverbindung (Variable $db
 // Zuest manipulation
 if( isset($_GET['id']) && isset($_GET['action']) && $_GET['action']=='delete' ){
 	$id = $_GET['id'];
-	$loeschen_query = "DELETE FROM `post` WHERE `ID` = ".$id;
-	$dbo->query( $loeschen_query );
+	$loeschen_query = "DELETE FROM `post` WHERE `ID` = ?";
+	// $dbo->query( $loeschen_query );
+	$statement = $dbo->prepare( $loeschen_query );
+	$statement->execute( $id );
 }
 
 // dann Datenbestand holen

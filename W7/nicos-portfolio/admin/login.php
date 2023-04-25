@@ -14,11 +14,14 @@ $isLoggedIn = false;
 if ( isset($_POST['username']) && isset($_POST['password']) ) {
 	
 	// Admin User in DB suchen, der die angegebene E-Mail hat: 
-	$query = "SELECT * FROM `user` WHERE `email` = '".$_POST['username']."' AND `usergroup` = 1";
+	$query = "SELECT * FROM `user` WHERE `email` = ? AND `usergroup` = 1"; // ? ist Platzhalter für den Wert
 
 	// echo $query;
-	$statement = $dbo->query( $query, PDO::FETCH_ASSOC ); // Query / Befehl and den DB Server senden (Bestellung)
+	// $statement = $dbo->query( $query, PDO::FETCH_ASSOC ); // Query / Befehl and den DB Server senden (Bestellung)
+	$statement = $dbo->prepare( $query ); // Query / Befehl and den DB Server senden (Bestellung)
+	$statement->execute( [$_POST['username']] ); // Liste mit den Werten, die die ? ersetzen sollen mitgeben
 	$datensatz = $statement->fetch();
+ 
 
 	if( empty($datensatz) ){
 		$errormessage = 'Benutzername oder passwort nicht korrekt';
